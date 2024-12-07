@@ -1,0 +1,251 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background: black;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+/* hangman */
+.hangman{
+    position: relative;
+    width: 100%;
+    height: 250px;
+    padding-left: 50px;
+    padding-top: 50px;
+    background-color: black;
+}
+
+.hangman .man #pole{
+    display: none;
+    transform: rotate(90deg);
+    transform-origin: top left;
+    width: 150px;
+    height: 10px;
+    background-color: white;
+}
+
+.hangman .man #suspension{
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 80px;
+    height: 10px;
+    background-color: white;
+}
+
+.hangman .man #rope{
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 130px;
+    transform: rotate(90deg);
+    transform-origin: top left;
+    width: 20px;
+    height: 10px;
+    background-color: white;
+}
+
+.hangman .man #head{
+    display: none;
+    position: absolute;
+    top: 78px;
+    left: 107px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    background-color: transparent;
+    border: 6px solid white;
+}
+
+.hangman .man #upperBody{
+    display: none;
+}
+
+.hangman .man #upperBody #leftArm{
+    position: absolute;
+    top: 112px;
+    left: 121px;
+    transform: rotate(120deg);
+    transform-origin: top left;
+    width: 30px;
+    height: 10px;
+    background-color: white;
+}
+
+.hangman .man #upperBody #chest{
+    position: absolute;
+    top: 108px;
+    left: 130px;
+    transform: rotate(90deg);
+    transform-origin: top left;
+    width: 30px;
+    height: 10px;
+    background-color: white;
+}
+
+.hangman .man #upperBody #rightArm{
+    position: absolute;
+    top: 107px;
+    left: 137px;
+    transform: rotate(50deg);
+    transform-origin: top left;
+    width: 30px;
+    height: 10px;
+    background-color: white;
+}
+
+.hangman .man #stomach{
+    display: none;
+    position: absolute;
+    top: 138px;
+    left: 130px;
+    transform: rotate(90deg);
+    transform-origin: top left;
+    width: 30px;
+    height: 10px;
+    background-color: white;
+}
+
+.hangman .man #lowerBody{
+    display: none;
+}
+
+.hangman .man #lowerBody #leftLeg{
+    position: absolute;
+    top: 162px;
+    left: 129px;
+    transform: rotate(120deg);
+    transform-origin: top left;
+    width: 40px;
+    height: 10px;
+    background-color: white;
+}
+
+.hangman .man #lowerBody #rightLeg{
+    position: absolute;
+    top: 157px;
+    left: 130px;
+    transform: rotate(50deg);
+    transform-origin: top left;
+    width: 40px;
+    height: 10px;
+    background-color: white;
+}
+
+/* words */
+.words{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    padding: 20px;
+}
+
+#randomWord-Ul{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    text-underline-offset: 15px;
+    font-size: 60px;
+}
+
+.letters{
+    margin-left: 30px;
+}
+
+.unselectable{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* again */
+.again{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    padding-top: 100px;
+    padding-bottom: 40px;
+}
+
+#playAgain{
+    display: none;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    font-size: 40px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* quit */
+.quit{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    padding: 10px;
+    padding-top: 40px;
+}
+
+.quit a{
+    text-decoration: none;
+}
+
+#quitBtn{
+    display: none;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    font-size: 40px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* word reveal */
+.output{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+#wordReveal{
+    margin-top: 50px;
+    display: none;
+    color: white;
+    align-items: center;
+}
+
+/* score */
+.score{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding-left: 38px;
+    padding-right: 50px;
+    padding-top: 20px;
+}

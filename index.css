@@ -1,0 +1,40 @@
+*{
+    font-family: sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    background-color: antiquewhite;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+h1{
+    font-weight: 600;
+    font-size: 80px;
+    margin-bottom: 50px;
+}
+
+button{
+    background-color: black;
+    color: white;
+    padding: 20px;
+    font-size: 40px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
