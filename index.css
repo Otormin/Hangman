@@ -1,40 +1,75 @@
-*{
-    font-family: sans-serif;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+* {
+  font-family: sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-body{
-    font-weight: bold;
-    text-align: center;
-    color: black;
-    background-color: black;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body {
+  font-weight: bold;
+  text-align: center;
+  color: black;
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-.container{
-    background-color: antiquewhite;
-    padding: 50px;
-    border-radius: 20px;
+.container {
+  background-color: antiquewhite;
+  padding: 50px;
+  border-radius: 20px;
+  max-width: 90%;
+  width: 100%;
 }
 
-h1{
-    font-weight: 600;
-    font-size: 80px;
-    margin-bottom: 50px;
+h1 {
+  font-weight: 600;
+  font-size: 80px;
+  margin-bottom: 50px;
+  word-wrap: break-word;
 }
 
-button{
-    background-color: black;
-    color: white;
-    padding: 20px;
-    font-size: 40px;
-    font-weight: 600;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
+button {
+  background-color: black;
+  color: white;
+  padding: 20px 40px;
+  font-size: 40px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 50px;
+  }
+
+  button {
+    font-size: 30px;
+    padding: 15px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 36px;
+  }
+
+  button {
+    font-size: 24px;
+    padding: 12px 25px;
+  }
+
+  .container {
+    padding: 30px;
+  }
 }
