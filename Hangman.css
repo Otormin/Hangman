@@ -178,6 +178,36 @@ body {
   user-select: none;
 }
 
+.guess {
+  display: none;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  padding: 20px;
+  gap: 10px;
+}
+
+#guessInput {
+  padding: 10px 15px;
+  font-size: 24px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+#guessButton {
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 /* again */
 .again {
   width: 100%;
@@ -258,6 +288,10 @@ body {
   #quitBtn {
     font-size: 30px;
   }
+
+  .guess {
+    display: flex;
+  }
 }
 
 @media (max-width: 480px) {
@@ -278,6 +312,12 @@ body {
   #quitBtn {
     font-size: 24px;
     padding: 10px 15px;
+  }
+
+  #guessInput,
+  #guessButton {
+    font-size: 20px;
+    padding: 8px 12px;
   }
 
   .score {

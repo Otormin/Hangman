@@ -1,58 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Hangman.css">
-    <title>Hangman</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="Hangman.css" />
+  <title>Hangman</title>
 </head>
 <body>
-    <div class="container">
-        <section class="score">
-            <h1 id="correctWords">Amount of words gotten correctly: 0</h1>
-            <h1 id="wrongWords">Amount of words gotten wrong: 0</h1>
-        </section>
-        <section class="hangman"> 
-            <div class="man">
-                <div id="pole"></div>
-                <div id="suspension"></div>
-                <div id="rope"></div>
-                <div id="head"></div>
-                <div id="upperBody">
-                    <div id="leftArm"></div>
-                    <div id="chest"></div>
-                    <div id="rightArm"></div>
-                </div>
-                <div id="stomach"></div>
-                <div id="lowerBody">
-                    <div id="leftLeg"></div>
-                    <div id="rightLeg"></div>
-                </div>
-            </div>
-        </section>
-        <section class="words">
-            <ul id="randomWord-Ul">
-                <!-- <li>
-                    <p style="color: transparent;" id="letter-El-${i}" class="letters">h</p>
-                </li>
-                <li>
-                    <p class="letter-El">a</p>
-                </li>
-                <li>
-                    <p class="letter-El">t</p>
-                </li> -->
-            </ul>  
-        </section>
-        <section class="again">
-            <button id="playAgain">Play Again</button>
-        </section>
-        <section class="output">
-            <h1 id="wordReveal"></h1>
-        </section>
-        <section class="quit">
-            <a href="index.html"><button id="quitBtn">Quit</button></a>
-        </section>
-    </div>
-    <script src="Hangman.js"></script>
+  <div class="container">
+    <section class="score">
+      <h1 id="correctWords">Amount of words gotten correctly: 0</h1>
+      <h1 id="wrongWords">Amount of words gotten wrong: 0</h1>
+    </section>
+
+    <section class="hangman">
+      <div class="man">
+        <div id="pole"></div>
+        <div id="suspension"></div>
+        <div id="rope"></div>
+        <div id="head"></div>
+        <div id="upperBody">
+          <div id="leftArm"></div>
+          <div id="chest"></div>
+          <div id="rightArm"></div>
+        </div>
+        <div id="stomach"></div>
+        <div id="lowerBody">
+          <div id="leftLeg"></div>
+          <div id="rightLeg"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="words">
+      <ul id="randomWord-Ul"></ul>
+    </section>
+
+    <section class="guess">
+      <input type="text" id="guessInput" maxlength="1" placeholder="Enter a letter"/>
+      <button id="guessButton">Guess</button>
+    </section>
+
+    <section class="again">
+      <button id="playAgain">Play Again</button>
+    </section>
+
+    <section class="output">
+      <h1 id="wordReveal"></h1>
+    </section>
+
+    <section class="quit">
+      <a href="index.html"><button id="quitBtn">Quit</button></a>
+    </section>
+  </div>
+
+  <script src="Hangman.js"></script>
 </body>
 </html>

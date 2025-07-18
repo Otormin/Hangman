@@ -1,23 +1,26 @@
 let playAgain = document.getElementById("playAgain")
 let quitBtn = document.getElementById("quitBtn")
-let randomWordUl= document.getElementById("randomWord-Ul")
-let pole= document.getElementById("pole")
-let suspension= document.getElementById("suspension")
-let rope= document.getElementById("rope")
-let head= document.getElementById("head")
-let upperBody= document.getElementById("upperBody")
-let stomach= document.getElementById("stomach")
-let lowerBody= document.getElementById("lowerBody")
+let randomWordUl = document.getElementById("randomWord-Ul")
+let pole = document.getElementById("pole")
+let suspension = document.getElementById("suspension")
+let rope = document.getElementById("rope")
+let head = document.getElementById("head")
+let upperBody = document.getElementById("upperBody")
+let stomach = document.getElementById("stomach")
+let lowerBody = document.getElementById("lowerBody")
 let wordReveal = document.getElementById("wordReveal")
 let correctWords = document.getElementById("correctWords")
 let wrongWords = document.getElementById("wrongWords")
+
+let guessInput = document.getElementById("guessInput")
+let guessButton = document.getElementById("guessButton")
 
 let countingWrongWords = 0
 let countingRightWords = 0
 let correctGuesses = 0
 let guessedLetters = []
 let livesLost = 0
-let index = 0
+let word = ""
 
 let words = [
     "apple", "banana", "cherry", "date", "elderberry", "fig", "grape", "honeydew", "kiwi", "lemon",
@@ -133,104 +136,98 @@ let words = [
     "vichyssoise", "watermelon", "xigua", "yarrow", "zucchini"
 ];
 
-let word = ""
-
-document.addEventListener("DOMContentLoaded", function(){
-    let randomNumber = Math.floor(Math.random()*words.length)
-    word = words[randomNumber]
-
-    let list = ""
-    for(let i = 0; i < word.length; i++){
-        list += `<li class="unselectable">
-        <p style="color: transparent;" id="letter-El-${i}" class="letters">${word[i]}</p>
-        </li>`
-
-        randomWordUl.innerHTML = list
-    }
+document.addEventListener("DOMContentLoaded", function() {
+  pickNewWord()
 })
 
-let playGame = document.addEventListener("keydown", function(keyboard){
+function pickNewWord() {
+  guessedLetters = []
+  correctGuesses = 0
+  livesLost = 0
 
-    if(!guessedLetters.includes(keyboard.key)){
-        if(!word.includes(keyboard.key)){
-            livesLost = livesLost + 1
-    
-            if(livesLost == 1){
-                pole.style.display = "block"
-            }
-            else if(livesLost == 2){
-                suspension.style.display = "block"
-            }
-            else if(livesLost == 3){
-                rope.style.display = "block"
-                head.style.display = "block"
-            }
-            else if(livesLost == 4){
-                upperBody.style.display = "block"
-            }
-            else if(livesLost == 5){
-                stomach.style.display = "block"
-            }
-            else if(livesLost == 6){
-                lowerBody.style.display = "block"
-                quitBtn.style.display = "block"
-                playAgain.style.display = "block"
-                wordReveal.innerHTML = `The word was: ${word}`
-                wordReveal.style.display = "block"
-                word = ""
-                countingWrongWords = countingWrongWords + 1
-                wrongWords.innerHTML = `Amount of words gotten wrong: ${countingWrongWords}`
-            }
-        }
-        else{
-            for(let i = 0; i < word.length; i++){
-                if(keyboard.key == word[i]){
-                    let letterElement = document.getElementById(`letter-El-${i}`)
-                    letterElement.style.color = "white"
-                    correctGuesses = correctGuesses + 1
-                }
-            }
-    
-            if(correctGuesses == word.length){
-                word = ""
-                correctGuesses = 0
-                playAgain.style.display = "block"
-                quitBtn.style.display = "block"
-                countingRightWords = countingRightWords + 1
-                correctWords.innerHTML = `Amount of words gotten correctly: ${countingRightWords}`
-            }
-        }
-        guessedLetters.push(keyboard.key);
+  pole.style.display = "none"
+  suspension.style.display = "none"
+  rope.style.display = "none"
+  head.style.display = "none"
+  upperBody.style.display = "none"
+  stomach.style.display = "none"
+  lowerBody.style.display = "none"
+  playAgain.style.display = "none"
+  quitBtn.style.display = "none"
+  wordReveal.style.display = "none"
+
+  let randomNumber = Math.floor(Math.random() * words.length)
+  word = words[randomNumber]
+
+  let list = ""
+  for (let i = 0; i < word.length; i++) {
+    list += `<li class="unselectable">
+      <p style="color: transparent;" id="letter-El-${i}" class="letters">${word[i]}</p>
+    </li>`
+  }
+  randomWordUl.innerHTML = list
+}
+
+function handleGuess(guess) {
+  guess = guess.toLowerCase()
+  if (!guess || guess.length !== 1) return
+  if (guessedLetters.includes(guess)) return
+
+  if (!word.includes(guess)) {
+    livesLost++
+    if (livesLost === 1) pole.style.display = "block"
+    else if (livesLost === 2) suspension.style.display = "block"
+    else if (livesLost === 3) {
+      rope.style.display = "block"
+      head.style.display = "block"
     }
-    else{
-        return;
+    else if (livesLost === 4) upperBody.style.display = "block"
+    else if (livesLost === 5) stomach.style.display = "block"
+    else if (livesLost === 6) {
+      lowerBody.style.display = "block"
+      quitBtn.style.display = "block"
+      playAgain.style.display = "block"
+      wordReveal.innerHTML = `The word was: ${word}`
+      wordReveal.style.display = "block"
+      countingWrongWords++
+      wrongWords.innerHTML = `Amount of words gotten wrong: ${countingWrongWords}`
+      word = ""
     }
+  } else {
+    for (let i = 0; i < word.length; i++) {
+      if (guess === word[i]) {
+        let letterElement = document.getElementById(`letter-El-${i}`)
+        letterElement.style.color = "white"
+        correctGuesses++
+      }
+    }
+    if (correctGuesses === word.length) {
+      playAgain.style.display = "block"
+      quitBtn.style.display = "block"
+      countingRightWords++
+      correctWords.innerHTML = `Amount of words gotten correctly: ${countingRightWords}`
+      word = ""
+    }
+  }
+
+  guessedLetters.push(guess)
+}
+
+document.addEventListener("keydown", function(e) {
+  handleGuess(e.key)
 })
 
-playAgain.addEventListener("click", function(){
-    guessedLetters = []
-    correctGuesses = 0
-    livesLost = 0
-    pole.style.display = "none"
-    suspension.style.display = "none"
-    rope.style.display = "none"
-    head.style.display = "none"
-    upperBody.style.display = "none"
-    stomach.style.display = "none"
-    lowerBody.style.display = "none"
-    playAgain.style.display = "none"
-    quitBtn.style.display = "none"
-    wordReveal.style.display = "none"
+guessButton.addEventListener("click", function() {
+  handleGuess(guessInput.value.trim())
+  guessInput.value = ""
+})
 
-    let randomNumber = Math.floor(Math.random()*words.length)
-    word = words[randomNumber]
+guessInput.addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+    guessButton.click()
+  }
+})
 
-    let list = ""
-    for(let i = 0; i < word.length; i++){
-        list += `<li class="unselectable">
-        <p style="color: transparent;" id="letter-El-${i}" class="letters">${word[i]}</p>
-        </li>`
-
-        randomWordUl.innerHTML = list
-    }
+playAgain.addEventListener("click", function() {
+  pickNewWord()
 })
