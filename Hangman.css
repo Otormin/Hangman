@@ -179,33 +179,7 @@ body {
 }
 
 .guess {
-  display: none;
-  width: 100%;
-  height: auto;
-  align-items: center;
-  justify-content: center;
-  background-color: black;
-  padding: 20px;
-  gap: 10px;
-}
-
-#guessInput {
-  padding: 10px 15px;
-  font-size: 24px;
-  border: none;
-  border-radius: 5px;
-  outline: none;
-}
-
-#guessButton {
-  background-color: white;
-  color: black;
-  padding: 10px 20px;
-  font-size: 24px;
-  font-weight: 600;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  display: none; 
 }
 
 /* again */
@@ -216,7 +190,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: black;
-  padding: 100px 20px 40px;
+  padding: 30px 20px 0px;
 }
 
 #playAgain {
@@ -238,7 +212,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: black;
-  padding: 40px 10px 10px;
+  padding: 20px 10px 10px;
 }
 
 .quit a {
@@ -261,7 +235,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 30px;
+  padding-bottom: 0px;
   text-align: center;
 }
 
@@ -280,6 +254,28 @@ body {
 }
 
 @media (max-width: 768px) {
+  .guess {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 40px 0px 40px;
+  }
+
+  .guess input {
+    width: 75%;
+    padding: 10px;
+    font-size: 18px;
+    box-sizing: border-box;
+  }
+
+  .guess button {
+    width: 25%;
+    padding: 5px;
+    font-size: 1.6rem;
+    cursor: pointer;
+  }
+
   #randomWord-Ul {
     font-size: 40px;
   }
@@ -314,16 +310,28 @@ body {
     padding: 10px 15px;
   }
 
-  #guessInput,
-  #guessButton {
-    font-size: 20px;
-    padding: 8px 12px;
-  }
-
   .score {
     flex-direction: column;
     gap: 10px;
     padding: 20px;
     text-align: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .guess button {
+    width: 25%;
+    padding: 9px;
+    font-size: 1.3rem;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 325px) {
+  .guess button {
+    width: 25%;
+    padding: 9px;
+    font-size: 1rem;
+    cursor: pointer;
   }
 }
